@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ASADWHModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DIM_Employee">
+          <Key>
+            <PropertyRef Name="Employee_Key" />
+          </Key>
+          <Property Name="Employee_Key" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_NUMBER" Type="int" />
+          <Property Name="GIVEN_NAME" Type="varchar" MaxLength="50" />
+          <Property Name="FAMILY_NAME" Type="varchar" MaxLength="50" />
+          <Property Name="DATE_OF_BIRTH" Type="datetime" />
+          <Property Name="CHANGE_REASON_CODE" Type="nvarchar" MaxLength="5" />
+          <Property Name="CHANGE_REASON_DESCRIPTION" Type="nvarchar" MaxLength="50" />
+          <Property Name="ROW_EFFECTIVE_DATE" Type="datetime" />
+          <Property Name="ROW_EXPIRATION_DATE" Type="datetime" />
+          <Property Name="CURRENT_ROW_INDICATOR" Type="nvarchar" MaxLength="1" />
+        </EntityType>
+        <EntityContainer Name="ASADWHModelStoreContainer">
+          <EntitySet Name="DIM_Employee" EntityType="Self.DIM_Employee" Schema="DWHF" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ASADWHModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DIM_Employee">
+          <Key>
+            <PropertyRef Name="Employee_Key" />
+          </Key>
+          <Property Name="Employee_Key" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_NUMBER" Type="Int32" />
+          <Property Name="GIVEN_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FAMILY_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DATE_OF_BIRTH" Type="DateTime" Precision="3" />
+          <Property Name="CHANGE_REASON_CODE" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="CHANGE_REASON_DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ROW_EFFECTIVE_DATE" Type="DateTime" Precision="3" />
+          <Property Name="ROW_EXPIRATION_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CURRENT_ROW_INDICATOR" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="ASADWHEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DIM_Employee" EntityType="Self.DIM_Employee" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ASADWHModelStoreContainer" CdmEntityContainer="ASADWHEntities">
+          <EntitySetMapping Name="DIM_Employee">
+            <EntityTypeMapping TypeName="ASADWHModel.DIM_Employee">
+              <MappingFragment StoreEntitySet="DIM_Employee">
+                <ScalarProperty Name="Employee_Key" ColumnName="Employee_Key" />
+                <ScalarProperty Name="ID_NUMBER" ColumnName="ID_NUMBER" />
+                <ScalarProperty Name="GIVEN_NAME" ColumnName="GIVEN_NAME" />
+                <ScalarProperty Name="FAMILY_NAME" ColumnName="FAMILY_NAME" />
+                <ScalarProperty Name="DATE_OF_BIRTH" ColumnName="DATE_OF_BIRTH" />
+                <ScalarProperty Name="CHANGE_REASON_CODE" ColumnName="CHANGE_REASON_CODE" />
+                <ScalarProperty Name="CHANGE_REASON_DESCRIPTION" ColumnName="CHANGE_REASON_DESCRIPTION" />
+                <ScalarProperty Name="ROW_EFFECTIVE_DATE" ColumnName="ROW_EFFECTIVE_DATE" />
+                <ScalarProperty Name="ROW_EXPIRATION_DATE" ColumnName="ROW_EXPIRATION_DATE" />
+                <ScalarProperty Name="CURRENT_ROW_INDICATOR" ColumnName="CURRENT_ROW_INDICATOR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
